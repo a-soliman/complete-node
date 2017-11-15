@@ -11,26 +11,27 @@ let command = process.argv[2];
 
 
 
-
-
 let validateCommand = (command) => {
+	let message;
+
 	if ( command === 'add') {
-		console.log('Adding note..');
+		message ='Adding note..'
 	}
 	else if (command === 'list') {
-		console.log('Listing Notes...');
+		message = 'Listing Notes...';
 	}
 	else if (command === 'remove') {
-		console.log('Removing note...');
+		message = 'Removing note...';
 	}
 	else if (command === 'read') {
-		console.log('Reading note...');
+		message = 'Reading note...';
 	}
 	else {
-		console.log('Command not recognized!')
+		message = 'Command not recognized!';
 	}
 
-	return
+	console.log(message);
+	return message;
 }
 
 validateCommand(command);
