@@ -2,20 +2,22 @@ console.log('Starting App.js');
 
 const fs = require('fs');
 const _ = require('lodash');
+const yargs = require('yargs');
 
 const notes = require('./notes');
 
+const argv = yargs.argv;
 let command = process.argv[2];
-//console.log(command)
-// console.log(process.argv)
 
-
+// TEST
+console.log('Process : ' + process.argv);
+console.dir(argv);
 
 let validateCommand = (command) => {
 	let message;
 
 	if ( command === 'add') {
-		message ='Adding note..'
+		notes.addNote(argv.title, argv.body);
 	}
 	else if (command === 'list') {
 		message = 'Listing Notes...';
@@ -29,9 +31,8 @@ let validateCommand = (command) => {
 	else {
 		message = 'Command not recognized!';
 	}
+	return;
+};
 
-	console.log(message);
-	return message;
-}
 
 validateCommand(command);
