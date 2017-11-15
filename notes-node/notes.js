@@ -7,7 +7,6 @@ let addNote = (title, body) => {
 
 	let newNote = {title: title, body: body};
 	notes.push(newNote);
-	console.log(`You have ${notes.length} notes`);
 };
 
 let listNotes = () => {
