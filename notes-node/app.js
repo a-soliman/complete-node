@@ -10,7 +10,6 @@ const argv = yargs.argv;
 let command = process.argv[2];
 
 // TEST
-console.log('Process : ' + process.argv);
 console.dir(argv);
 
 let validateCommand = (command) => {
@@ -20,13 +19,13 @@ let validateCommand = (command) => {
 		notes.addNote(argv.title, argv.body);
 	}
 	else if (command === 'list') {
-		message = 'Listing Notes...';
+		notes.listNotes();
 	}
 	else if (command === 'remove') {
-		message = 'Removing note...';
+		notes.removeNote(argv.title);
 	}
 	else if (command === 'read') {
-		message = 'Reading note...';
+		notes.readNote(argv.title);
 	}
 	else {
 		message = 'Command not recognized!';
