@@ -12,12 +12,7 @@ let addNote = (title, body) => {
 		body
 	};
 
-	try {
-		let notesString = fs.readFileSync('notes-data.json');
-		notes = JSON.parse(notesString);
-	} catch(e) {
-
-	}
+	notes = getNotes();
 	
 	let duplicateNotes = notes.filter((note) => note.title === title);
 
@@ -32,15 +27,40 @@ let addNote = (title, body) => {
 };
 
 let listNotes = () => {
-	console.log('Listing Notes...');
+	
+	let notes = getNotes();
+
+	if( notes.length ) {
+		notes.forEach((note) => console.log(note));
+	}
+	else {
+		console.log('No Saved notes')
+	}
 };
 
 let removeNote = (title) => {
-	console.log('Removing a Note...');
+	let notes = getNotes();
+	for( let i = 0; i < notes.length; i++ ) {
+		let note = notes[i];
+		if(note.title == title) {
+			notes.splice(i, 1);
+			console.log('Removed 1 note..');
+		};
+	}
+
+	fs.writeFileSync('notes-data.json', JSON.stringify(notes));
+
 };
 
 let readNote = (title) => {
-	console.log('Reading a note...')
+	let notes = getNotes();
+	let note = notes.filter((data) => data.title == title);
+
+	if(note) {
+		console.log(note);
+	} else {
+		console.log('No such note in DB!')
+	}
 };
 
 let isUniqeNode = (title, notesArr) => {
@@ -55,6 +75,17 @@ let isUniqeNode = (title, notesArr) => {
 	return true;
 };
 
+let getNotes = () => {
+	let notes = [];
+
+	try {
+		let notesString = fs.readFileSync('notes-data.json');
+		notes = JSON.parse(notesString);
+	} catch(e) {
+
+	}
+	return notes;
+}
 
 module.exports = {
 	addNote,
