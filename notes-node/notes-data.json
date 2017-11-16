@@ -1,1 +1,10 @@
-[{"title":"to buy3","body":"food"},{"title":"secret","body":"this is the body"}]
+[
+  {
+    "title": "Title",
+    "body": "this is the body"
+  },
+  {
+    "title": "sectet",
+    "body": "this is a secret body"
+  }
+]
