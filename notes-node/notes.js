@@ -38,7 +38,7 @@ let addNote = (title, body) => {
 
 let listNotes = () => {
 	let notes = getNotes();
-	debugger;
+
 	return notes;
 };
 
@@ -59,7 +59,6 @@ let removeNote = (title) => {
 
 let readNote = (title) => {
 	
-
 	let notes = getNotes();
 	let note = notes.filter((data) => data.title == title);
 
