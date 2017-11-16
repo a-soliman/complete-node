@@ -49,27 +49,19 @@ let removeNote = (title) => {
 		let note = notes[i];
 		if(note.title == title) {
 			notes.splice(i, 1);
-			foundNote = true;
-			console.log('Removed 1 note..');
+			saveNotes(notes);
+			return note;
 		};
 	}
 
-	saveNotes(notes);
-
-	if(foundNote === false) {
-		console.log('No such note in DB!');
-	}
+	return false;
 };
 
 let readNote = (title) => {
 	let notes = getNotes();
 	let note = notes.filter((data) => data.title == title);
 
-	if(note) {
-		console.log(note);
-	} else {
-		console.log('No such note in DB!')
-	}
+	return note[0];
 };
 
 

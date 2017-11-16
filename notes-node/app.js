@@ -33,10 +33,22 @@ let validateCommand = (command) => {
 		}
 	}
 	else if (command === 'remove') {
-		notes.removeNote(argv.title);
+		let removedNote = notes.removeNote(argv.title);
+
+		if(removedNote) {
+			console.log(`Removed note: ${removedNote.title}.`);
+		} else {
+			console.log('No Such node was found!')
+		}
 	}
 	else if (command === 'read') {
-		notes.readNote(argv.title);
+		let note = notes.readNote(argv.title);
+
+		if(note) {
+			console.log(note.body);
+		} else {
+			console.log('No such note was found!');
+		}
 	}
 	else {
 		message = 'Command not recognized!';
