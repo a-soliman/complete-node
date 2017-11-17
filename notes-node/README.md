@@ -20,9 +20,9 @@ b. `--body` or `-b` for the note's body **Required**.
 
 **ex.**
 
-a. `node app.js add --title="notes title" --body="notes body"`
+a. `node app.js add --title="note title" --body="note body"`
 
-b. `node app.js add -t="notes title" -b="notes body"`
+b. `node app.js add -t="note title" -b="note body"`
 
 ---
 
@@ -34,9 +34,9 @@ a. `--title` or `-t`  for the note's title **Required**.
 
 **ex.**
 
-a. `node app.js read --title="notes title"`
+a. `node app.js read --title="note title"`
 
-b. `node app.js read -t="notes title" `
+b. `node app.js read -t="note title" `
 
 ---
 
@@ -57,6 +57,6 @@ a. `--title` or `-t`  for the note's title **Required**.
 
 **ex.**
 
-a. `node app.js remove --title="notes title"`
+a. `node app.js remove --title="note title"`
 
-b. `node app.js remove -t="notes title" `
+b. `node app.js remove -t="note title" `
