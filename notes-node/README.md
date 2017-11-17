@@ -25,6 +25,8 @@ a. `node app.js add --title="notes title" --body="notes body"`
 
 b. `node app.js add -t="notes title" -b="notes body"`
 
+
+
 2. `read` reads a note
 
 **properties**
