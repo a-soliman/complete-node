@@ -65,10 +65,6 @@ let readNote = (title) => {
 	return note[0];
 };
 
-
-
-
-
 module.exports = {
 	addNote,
 	listNotes,
