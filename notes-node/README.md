@@ -1,15 +1,15 @@
 # Notes App. #
 
-##A NodeJs Terminal Application
-###To Add, Read, List and Remove notes.
+## A NodeJs Terminal Application ##
+### To Add, Read, List and Remove notes. ###
 
-####Instalition
+#### Instalition ####
 
 1. clone the repo.
 
 2. run `npm install`
 
-####Commands
+#### Commands ####
 
 `add` adds a new note
 
