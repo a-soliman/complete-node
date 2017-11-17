@@ -11,16 +11,28 @@
 
 #### Commands ####
 
-`add` adds a new note
+1. `add` adds a new note
 
 **properties**
 
-1. `--title` or `-t`  for the note's title.
+a. `--title` or `-t`  for the note's title **Required**.
 
-2. `--body` or `-b` for the note's body.
+b. `--body` or `-b` for the note's body **Required**.
 
 **ex.**
 
-1. `node app.js --title="notes title" --body="notes body"`
+a. `node app.js add --title="notes title" --body="notes body"`
 
-2. `node app.js -t="notes title" -b="notes body"`
+b. `node app.js add -t="notes title" -b="notes body"`
+
+2. `read` reads a note
+
+**properties**
+
+a. `--title` or `-t`  for the note's title **Required**.
+
+**ex.**
+
+a. `node app.js read --title="notes title"`
+
+b. `node app.js read -t="notes title" `
