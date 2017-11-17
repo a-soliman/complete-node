@@ -1,4 +1,4 @@
-#Notes App.
+#Notes App.#
 
 ##A NodeJs Terminal Application
 ###To Add, Read, List and Remove notes.
