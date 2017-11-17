@@ -1,7 +1,6 @@
 # Notes App. #
 
-## A NodeJs Terminal Application ##
-### To Add, Read, List and Remove notes. ###
+### A NodeJs Terminal Application to Add, Read, List and Remove notes. ###
 
 #### Instalition ####
 
@@ -11,7 +10,7 @@
 
 #### Commands ####
 
-1. `add` adds a new note
+1. `add` adds a new note.
 
 **properties**
 
@@ -27,7 +26,7 @@ b. `node app.js add -t="notes title" -b="notes body"`
 
 ---
 
-2. `read` reads a note
+2. `read` reads a note.
 
 **properties**
 
@@ -38,3 +37,26 @@ a. `--title` or `-t`  for the note's title **Required**.
 a. `node app.js read --title="notes title"`
 
 b. `node app.js read -t="notes title" `
+
+---
+
+3. `list` displays all saved notes.
+
+
+**ex.**
+
+`node app.js list`
+
+---
+
+4. `remove` removes a note.
+
+**properties**
+
+a. `--title` or `-t`  for the note's title **Required**.
+
+**ex.**
+
+a. `node app.js remove --title="notes title"`
+
+b. `node app.js remove -t="notes title" `
