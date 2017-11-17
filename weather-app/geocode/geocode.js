@@ -1,7 +1,6 @@
 const request = require('request');
-const yargs = require('yargs');
 
-module.exports  = geocodeAddress = function(address) {
+module.exports  = geocodeAddress = function(address, callback) {
 	let encodedAddress = encodeURIComponent(address);
 
 
@@ -11,15 +10,17 @@ module.exports  = geocodeAddress = function(address) {
 }, (error, response, body) => {
 
 	if(error) {
-		console.log('Unable to connect to user service.')
+		callback('Unable to connect to user service.')
 	}
 	else if (body.status == 'ZERO_RESULTS') {
-		console.log('Unable to find that address.')
+		callback('Unable to find that address.')
 	}
 	else if (body.status == 'OK') {
-		console.log(`Adress: ${body.results[0].formatted_address}`);
-		console.log(`LAT: ${body.results[0].geometry.location.lat}`);
-		console.log(`LNG: ${body.results[0].geometry.location.lng}`);
+		callback(null, {
+			address: body.results[0].formatted_address,
+			lat: body.results[0].geometry.location.lat,
+			lng: body.results[0].geometry.location.lng
+		});
 	}
 	else {
 		console.log('something wrong accured.')
