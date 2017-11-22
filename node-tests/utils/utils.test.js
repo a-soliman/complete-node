@@ -1,4 +1,4 @@
-const utils = require('utils');
+const utils = require('./utils');
 
 it('should add two numbers', () => {
 	let res = utils.add(10, 20);
