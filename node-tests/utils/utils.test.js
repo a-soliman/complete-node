@@ -10,9 +10,10 @@ it('should add two numbers', () => {
 
 it('Should square a number', () => {
 	let number = Math.floor((Math.random() * 999) + 1);
+	let dnumber = (number * number);
 	let res = utils.square(number);
 
 	if(res !== (number * number)) {
-		throw new Error(`Expecting 25, but gor ${res}`);
+		throw new Error(`Expecting ${dnumber}, but gor ${res}`);
 	};
-})
+});
