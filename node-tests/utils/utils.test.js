@@ -8,6 +8,15 @@ it('should add two numbers', () => {
 	expect(res).toBe(30).toBeA('number');
 });
 
+it('Should async add two numbers', (done) => {
+	utils.asyncAdd(3, 4, (sum) => {
+		expect(sum).toBe(7).toBeA('number');
+		done();
+	})
+
+
+});
+
 it('Should square a number', () => {
 	let number = Math.floor((Math.random() * 999) + 1);
 	let doubleNumber = (number * number);
