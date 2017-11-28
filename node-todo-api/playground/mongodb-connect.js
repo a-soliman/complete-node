@@ -8,6 +8,7 @@ MongoClient.connect(dbURL, (err, db) => {
 	}
 	console.log('Connected to MongoDB.');
 
+	/*
 	db.collection('Todos').insertOne({ 
 		text: 'Something to do.',
 		completed: false
@@ -18,5 +19,21 @@ MongoClient.connect(dbURL, (err, db) => {
 
 			console.log(JSON.stringify(result.ops, null, 2))
 		})
+	*.
+
+	/*
+	db.collection('Users').insertOne({
+		name: 'Ahmed',
+		age: 30,
+		location: 'San Francisco'
+	}, (err, result) => {
+		if( err ) {
+			return console.log('Unable to insert user ', err);
+		}
+
+		console.log(JSON.stringify(result.ops, null, 2));
+	})
+	*/
+
 	db.close();
 });
