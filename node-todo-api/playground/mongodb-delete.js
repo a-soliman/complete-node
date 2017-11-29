@@ -25,5 +25,5 @@ MongoClient.connect(dbURL, ( err, db ) => {
 		console.log(result)
 	}, ( err ) => {
 		console.log('Unable to remove todo ', err);
-	})
+	});
 });
