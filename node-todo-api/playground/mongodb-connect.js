@@ -8,6 +8,16 @@ MongoClient.connect(dbURL, (err, db) => {
 	}
 	console.log('Connected to MongoDB.');
 
+	db.collection('Todos').insertOne({
+		text: 'Do something',
+		completed: false
+	}, (err, result) => {
+		if ( err ) {
+			return console.log('Unable to insert todo ', err);
+		}
+		console.log(JSON.stringify(result.ops, null, 2))
+	})
+
 	/*
 	db.collection('Todos').insertOne({ 
 		text: 'Something to do.',
