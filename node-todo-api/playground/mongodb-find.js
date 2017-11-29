@@ -9,11 +9,20 @@ MongoClient.connect(dbURL, ( err, db ) => {
 	}
 	console.log('Succssefully Connected to DB');
 
-	db.collection('Todos').find().count().then((count) => {
-		console.log( 'Todos: ', count);
-	}, ( err ) => {
-		console.log('An error has occured!');
+
+	db.collection('Users').find().toArray().then((docs) => {
+		console.log( docs)
+	}, (err) => {
+		if(err) {
+			console.log('unable to fitch data...')
+		}
 	})
+
+	// db.collection('Todos').find().count().then((count) => {
+	// 	console.log( 'Todos: ', count);
+	// }, ( err ) => {
+	// 	console.log('An error has occured!');
+	// })
 
 	// db.collection('Todos').find().toArray().then((docs) => {
 	// 	console.log( JSON.stringify(docs, null, 2 ));
