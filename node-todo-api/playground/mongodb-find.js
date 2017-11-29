@@ -9,7 +9,7 @@ MongoClient.connect(dbURL, ( err, db ) => {
 	}
 	console.log('Succssefully Connected to DB');
 
-	db.collection('Todos').find().toArray().then((docs) => {
+	db.collection('Users').find().toArray().then((docs) => {
 		console.log( JSON.stringify(docs, null, 2 ));
 	}, ( err ) => {
 		console.log('An error has occured!');
