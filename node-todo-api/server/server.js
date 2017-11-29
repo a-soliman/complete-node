@@ -29,6 +29,10 @@ let newTodo = new Todo({
 	completedAt: 27
 });
 
-
+newTodo.save().then((doc) => {
+	console.log(JSON.stringify(doc, null, 2))
+}, (err) => {
+	console.log('unable to save newTodo ', err);
+})
 
 
