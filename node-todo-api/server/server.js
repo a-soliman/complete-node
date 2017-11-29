@@ -21,6 +21,14 @@ const Todo = mongoose.model('Todo', {
 	}
 });
 
+// creaing a todo
+
+let newTodo = new Todo({
+	text: 'Study chapter 11',
+	completed: true,
+	completedAt: 27
+});
+
 
 
 
