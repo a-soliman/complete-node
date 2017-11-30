@@ -9,38 +9,48 @@ mongoose.connect(dbURL);
 
 
 // creating mongoose-model
-const Todo = mongoose.model('Todo', {
-	text: {
+// const Todo = mongoose.model('Todo', {
+// 	text: {
+// 		type: String,
+// 		required: true,
+// 		minlenght: 3
+// 		trim: true
+// 	},
+// 	completed: {
+// 		type: Boolean,
+// 		default: false
+// 	},
+// 	completedAt: {
+// 		type: Number,
+// 		default: null
+// 	}
+// });
+
+
+// let otherTodo = new Todo({})
+
+// otherTodo.save().then((doc) => {
+// 	console.log(JSON.stringify(doc, null, 2))
+// }, (err) => {
+// 	console.log('an error ... ', err);
+// });
+
+// User model
+const User = mongoose.model('User', {
+	email: {
 		type: String,
-		required: true
-	},
-	completed: {
-		type: Boolean
-	},
-	completedAt: {
-		type: Number
+		required: true,
+		trim: true,
+		minlength: 3
 	}
 });
 
-// creaing a todo
+let newUser = new User({
+	email: 'ah'
+});
 
-// let newTodo = new Todo({
-// 	text: 'Study chapter 11',
-// 	completed: true,
-// 	completedAt: 27
-// });
-
-// newTodo.save().then((doc) => {
-// 	console.log(JSON.stringify(doc, null, 2))
-// }, (err) => {
-// 	console.log('unable to save newTodo ', err);
-// })
-
-
-let otherTodo = new Todo({})
-
-otherTodo.save().then((doc) => {
-	console.log(JSON.stringify(doc, null, 2))
+newUser.save().then((doc) => {
+	console.log(JSON.stringify(doc, null, 2));
 }, (err) => {
-	console.log('an error ... ', err);
+	console.log('Unable to save user...')
 })
