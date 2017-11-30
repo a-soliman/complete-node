@@ -41,3 +41,5 @@ app.post('/users', ( req, res ) => {
 app.listen(port, () => {
 	console.log(`Server is on at ${port}.`);
 });
+
+module.exports = { app };
