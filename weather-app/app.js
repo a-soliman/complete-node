@@ -44,7 +44,7 @@ axios.get(geocodeUrl)
     		if(response.data.status === 404) {
     			throw new Error('Unable to fetch weather');
     		}
-
+        
     		// storing the data incase the API responded. 
     		let temperature = response.data.currently.temperature;
     		let apparentTemperature = response.data.currently.apparentTemperature;
