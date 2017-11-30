@@ -12,7 +12,7 @@ let app = express();
 app.use(bodyParser.json());
 
 
-// POST
+// TODO POST
 app.post('/todos', (req, res) => {
 	let todo = new Todo({
 		text: req.body.text
@@ -21,6 +21,19 @@ app.post('/todos', (req, res) => {
 	todo.save().then((doc) => {
 		res.send({ status: 'Saved', doc: doc });
 	}, (err) => {
+		res.status(400).send(err)
+	})
+});
+
+// USER POST
+app.post('/users', ( req, res ) => {
+	let user = new User({
+		email: req.body.email
+	});
+
+	user.save().then(( doc ) => {
+		res.status(200).send({ doc: doc })
+	}, ( err ) => {
 		res.status(400).send(err)
 	})
 });
