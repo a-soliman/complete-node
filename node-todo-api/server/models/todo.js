@@ -1,8 +1,10 @@
+const mongoose = require('mongoose');
+
 const Todo = mongoose.model('Todo', {
 	text: {
 		type: String,
 		required: true,
-		minlenght: 3
+		minlenght: 3,
 		trim: true
 	},
 	completed: {
@@ -14,3 +16,5 @@ const Todo = mongoose.model('Todo', {
 		default: null
 	}
 });
+
+module.exports = { Todo };
