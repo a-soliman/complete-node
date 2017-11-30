@@ -1,9 +1,10 @@
-const express 	 = require('express');
-const bodyParser = require('body-parser'); 
+const express 	 	= require('express');
+const bodyParser 	= require('body-parser');
+const { ObjectID } 	= require('mongodb')
 
-const {mongoose} = require('./db/mongoose');
-const {Todo} 	 = require('./models/todo');
-const {User} 	 = require('./models/user');
+const {mongoose} 	= require('./db/mongoose');
+const {Todo} 	 	= require('./models/todo');
+const {User} 	 	= require('./models/user');
 
 const port = process.env.PORT || 3000;
 
@@ -18,6 +19,34 @@ app.get('/todos', ( req, res ) => {
 	}, ( err ) => {
 		res.status(400).send('Unable to fitch todos');
 	})
+});
+
+// Get one Todo
+app.get('/todos/:id', ( req, res ) => {
+	let id = req.params['id'];
+
+	if( !ObjectID.isValid(id) ) {
+		res.status(404).send('Invalid Id')
+	} 
+	else {
+		Todo.findById(id)
+			.then( 
+				( todo ) => {
+					if( !todo ) {
+						return res.status(404).send('Unable to find a Todo with the provided ID.');
+					}
+					res.send({ todo });
+			}, 
+				( err ) => {
+					res.status(404).send('Unable to find a Todo with the provided ID.');
+				}
+			)
+			.catch(
+				( err ) => {
+					res.send('an error have occured.')
+				}
+			)
+	}
 });
 
 // TODO POST
