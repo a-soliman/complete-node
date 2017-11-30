@@ -11,6 +11,14 @@ let app = express();
 
 app.use(bodyParser.json());
 
+// TODO GET
+app.get('/todos', ( req, res ) => {
+	Todo.find().then((todos) => {
+		res.send({ todos});
+	}, ( err ) => {
+		res.status(400).send('Unable to fitch todos');
+	})
+});
 
 // TODO POST
 app.post('/todos', (req, res) => {
