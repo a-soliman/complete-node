@@ -9,7 +9,13 @@ const todos = [{
 	text: 'First test todo'
 }, {
 	text: 'Second test todo'
-}]
+}];
+
+const users = [{
+	email: 'First test email'
+}, {
+	email: 'Second test email'
+}];
 
 beforeEach((done) => {
 	Todo.remove({}).then(() => { 
@@ -18,7 +24,9 @@ beforeEach((done) => {
 });
 
 beforeEach((done) => {
-	User.remove({}).then(() => { done(); });
+	User.remove({}).then(() => { 
+		return User.insertMany(users); 
+	}).then(() => done());
 });
 
 
@@ -62,6 +70,19 @@ describe('POST /todos', () => {
 					done();
 				}).catch(e => done(e));
 			})
+	})
+})
+
+describe('GET /todos', () => {
+	it('Should get all todos', (done) => {
+		request(app)
+			.get('/todos')
+			.expect(200)
+			.expect((res) => {
+				expect(res.body.todos.length).toBe(2);
+			})
+
+			.end(done())
 	})
 })
 
