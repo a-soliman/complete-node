@@ -30,7 +30,7 @@ app.post('/todos', (req, res) => {
 		res.send({ status: 'Saved', doc: doc });
 	}, (err) => {
 		res.status(400).send(err)
-	})
+	});
 });
 
 // USER POST
